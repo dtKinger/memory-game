@@ -3,7 +3,9 @@ import { ReactDOM } from 'react'
 import './App.css'
 
 function App({children}) {
-  
+
+  // Can lift states to here as needed
+
   return children
 }
 
