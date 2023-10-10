@@ -1,3 +1,4 @@
+import "../styles/quotes.css"
 import { useState, useEffect } from "react";
 
 export function Quotes (fetchedQuotes) {
@@ -8,7 +9,7 @@ export function Quotes (fetchedQuotes) {
     const initialFetch = async () => {
       
       try{
-      const response = await fetch('https://famous-quotes4.p.rapidapi.com/random?count=2&category=all',
+      const response = await fetch('https://famous-quotes4.p.rapidapi.com/random?count=5&category=all',
       {
         cache: 'no-cache',
         headers: 
@@ -30,13 +31,12 @@ export function Quotes (fetchedQuotes) {
   
   const quoteList = twoQuotes.map(item => {
     // nextId++
-    return <li key={item.id} id={`quote-${item.id}`}>{item.text} ~ {item.author}</li>
+    return <li className="quote-card" key={item.id} id={`quote-${item.id}`}><span className="quote-text">{item.text}</span><br></br><br></br><span className="quote-author">~ {item.author}</span></li>
   })
 
   return (
-    <div>
-      <ul>
-        
+    <div className="quotes-container">
+      <ul className="quotes-list">
       {quoteList}
       </ul>
     </div>
