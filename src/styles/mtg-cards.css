@@ -23,10 +23,14 @@ ul, li{
   border-radius: 10px;
   background-color: white;
   color: black;
-  width: 220px;
-  height: 310px;
+  width: 165px;
+  height: 228px;
   overflow: hidden;
   box-shadow: 0 0 6px 2px white;
+}
+
+.card > img {
+  width: 100%;
 }
 
 .card:hover{

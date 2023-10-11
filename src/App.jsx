@@ -6,7 +6,7 @@ import './App.css'
 import MTGcards from './components/MTGcards';
 // import GameOver from './GameOver';
 
-function App() {
+function App({Score}) {
 
   const [gameStage, setGameStage] = useState("mtg-cards");
 
@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+      {Score}
       {gameStage === "pre-game" && (
         <PreGame onStartGame={handleGameStart} />
       )}
