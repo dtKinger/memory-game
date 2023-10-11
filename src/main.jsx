@@ -7,8 +7,6 @@ import {MTGcards} from "./components/MTGcards.jsx"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App>
-      <MTGcards />
-    </App>
+    <App />
   </React.StrictMode>,
 )

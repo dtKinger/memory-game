@@ -1,3 +1,6 @@
 #root {
+  display: flex;
+  align-items: center;
   background-color: rgba(50, 50, 50, 0.75);
+  min-height: 50vh;
 }

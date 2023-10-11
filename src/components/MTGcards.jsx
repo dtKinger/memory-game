@@ -1,7 +1,7 @@
 import "../styles/mtg-cards.css"
 import { useState, useEffect } from "react";
 
-export function MTGcards () {
+export function MTGcards ({onGameOver, onPlayerWin}) {
   const [fiveCards, setFiveCards] = useState([])
   const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
   // Infer the player score by gameScore.length.
@@ -68,36 +68,35 @@ export function MTGcards () {
     })
   
   const playRound = (e) => {
+
     // Record the action
     console.log("You clicked: ")
     console.log(e.target)
     // Get the id
     let selection = e.target.parentElement.id;
     if (!gameScore.includes(selection)){
-      gameScore.push(selection)
+      // gameScore.push(selection) Don't use a vanilla method
+      setGameScore(prev => [
+        ...prev,
+        selection
+      ])
     } else if (gameScore.includes(selection)){
-      gameOver();
+      onGameOver();
     }
     console.log(gameScore)
+    
+  }
 
-
-    // Check Winner
-    if (gameScore.length === 5){
-      declareWinner();
+  // Make the winner check depend on the gameScore
+  useEffect(() => {
+    const checkForWinner = () => {
+      if (gameScore.length === 5) {
+        onPlayerWin();
+      }
     }
-  }
-
-  const gameOver = () => {
-    console.log('You lose.')
-    const losingDiv = `<div>GAME OVER</div>`
-    document.querySelector('.cards-container').innerHTML = losingDiv;
-  }
-
-  const declareWinner = () => {
-    console.log('You win!')
-    const winningDiv = `<div>Congratulations! You have a great memory.</div>`
-    document.querySelector('.cards-container').innerHTML = winningDiv;
-  }
+  
+    checkForWinner();
+  }, [gameScore]);
 
   // Implement the Fisher-Yates Shuffle
   const shuffleList = (fiveCards) => {
@@ -128,3 +127,4 @@ export function MTGcards () {
   )
 }
 
+export default MTGcards;
