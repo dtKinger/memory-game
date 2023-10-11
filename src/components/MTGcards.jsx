@@ -26,17 +26,10 @@ export function MTGcards () {
 
       // Pick 5 random cards
       let randomFive = [];
-      let a = Math.floor(Math.random() * cardsWithImages.length)
-      let b = Math.floor(Math.random() * cardsWithImages.length)
-      let c = Math.floor(Math.random() * cardsWithImages.length)
-      let d = Math.floor(Math.random() * cardsWithImages.length)
-      let e = Math.floor(Math.random() * cardsWithImages.length)
-
-      randomFive.push(cardsWithImages[a])
-      randomFive.push(cardsWithImages[b])
-      randomFive.push(cardsWithImages[c])
-      randomFive.push(cardsWithImages[d])
-      randomFive.push(cardsWithImages[e])
+      for (let i = 0; i < 5; i += 1) {
+        let randomIndex = Math.floor(Math.random() * cardsWithImages.length);
+        randomFive.push(cardsWithImages[randomIndex]);
+      }
 
       console.log(randomFive)
 
