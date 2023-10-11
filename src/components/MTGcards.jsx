@@ -44,16 +44,42 @@ export function MTGcards () {
     initialFetch();
   }, []);
 
+  const handleCardClick = (e) => {
+    
+    console.log("You clicked: ")
+    console.log(e.target)
+    shuffleList(fiveCards);
+  }
   
   const cardsList = fiveCards.map(item => {
     const backgroundImageURL = item.imageUrl;
       return (
-      <li className="card" key={item.id} id={item.id}>
+      <li className="card" key={item.id} id={item.id} onClick={handleCardClick}>
         <img src={backgroundImageURL}></img>
       </li>
       )
     })
   
+  // Implement the Fisher-Yates Shuffle
+  const shuffleList = (fiveCards) => {
+    // Copy fiveCards
+    let shuffledOrder = [...fiveCards]
+
+
+    let currentIndex = fiveCards.length
+    let randomIndex;
+
+    while (currentIndex > 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // Swap the remaining element with the current element.
+      [shuffledOrder[currentIndex], shuffledOrder[randomIndex]] = [
+        shuffledOrder[randomIndex], shuffledOrder[currentIndex]];
+    }
+    setFiveCards(shuffledOrder);
+  }
 
   return (
     <div className="cards-container">
