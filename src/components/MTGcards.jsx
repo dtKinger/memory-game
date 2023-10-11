@@ -8,18 +8,13 @@ export function MTGcards () {
     const initialFetch = async () => {
       
       try{
-      const response = await fetch('https://famous-quotes4.p.rapidapi.com/random?count=5&category=all',
+      const response = await fetch('https://api.magicthegathering.io/v1/cards?pageSize=5',
       {
         cache: 'no-cache',
-        headers: 
-        {
-          'x-rapidapi-host': 'famous-quotes4.p.rapidapi.com',
-          'x-rapidapi-key': import.meta.env.VITE_PRIVATE_RAPID_KEY
-        }
       })
       const data = await response.json();
       console.log(data)
-      setFiveCards(data)
+      setFiveCards(data.cards)
       } catch (error) {
         console.log(error);
       }
@@ -29,8 +24,9 @@ export function MTGcards () {
 
   
   const cardsList = fiveCards.map(item => {
-    return <li className="card" key={item.id} id={item.id}><span className="text">{item.text}</span><br></br><br></br><span className="author">~ {item.author}</span></li>
-  })
+      return <li className="card" key={item.id} id={item.id}><span className="text">{item.text}</span><br></br><br></br><span className="author">~ {item.author}</span></li>
+    })
+  
 
   return (
     <div className="cards-container">
