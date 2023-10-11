@@ -21,9 +21,6 @@ export function MTGcards () {
         }
       })
 
-      console.log('cardsWithImages is: ')
-      console.log(cardsWithImages)
-
       // Pick 5 random cards
       let randomFive = [];
       let noDuplicateCards = new Set()
@@ -36,7 +33,6 @@ export function MTGcards () {
           console.log('We dodged a duplicate random.')
         };
       }
-      console.log(noDuplicateCards)
 
       console.log(randomFive)
 
