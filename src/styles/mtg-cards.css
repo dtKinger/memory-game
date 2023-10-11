@@ -21,11 +21,10 @@ ul, li{
 
 .card{
   border-radius: 30px;
-  padding: 20px;
   background-color: white;
   color: black;
-  width: 200px;
-  height: 300px;
+  width: 220px;
+  height: 310px;
   overflow: hidden;
 }
 
