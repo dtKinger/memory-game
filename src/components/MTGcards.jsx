@@ -73,14 +73,30 @@ export function MTGcards () {
     console.log(e.target)
     // Get the id
     let selection = e.target.parentElement.id;
-    console.log(selection)
-    // 
+    if (!gameScore.includes(selection)){
+      gameScore.push(selection)
+    } else if (gameScore.includes(selection)){
+      gameOver();
+    }
+    console.log(gameScore)
 
 
     // Check Winner
-    // if (gameScore.length === 4){
-      // declareWinner();
-    // }
+    if (gameScore.length === 5){
+      declareWinner();
+    }
+  }
+
+  const gameOver = () => {
+    console.log('You lose.')
+    const losingDiv = `<div>GAME OVER</div>`
+    document.querySelector('.cards-container').innerHTML = losingDiv;
+  }
+
+  const declareWinner = () => {
+    console.log('You win!')
+    const winningDiv = `<div>Congratulations! You have a great memory.</div>`
+    document.querySelector('.cards-container').innerHTML = winningDiv;
   }
 
   // Implement the Fisher-Yates Shuffle
