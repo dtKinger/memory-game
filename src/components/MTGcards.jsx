@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 
 export function MTGcards () {
   const [fiveCards, setFiveCards] = useState([])
+  const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
+  // Infer the player score by gameScore.length.
+  const [topScore, setTopScore] = useState(0) // Set this to:
+  // highestScore = if( gameScore > topScore ? gameScore : topScore)
+  // localStore.setItem('highestScore', highestScore);
   
   useEffect( () => {
     const initialFetch = async () => {
@@ -45,9 +50,11 @@ export function MTGcards () {
   }, []);
 
   const handleCardClick = (e) => {
-    
-    console.log("You clicked: ")
-    console.log(e.target)
+  
+    // Play the round
+    playRound(e);
+
+    // Set up for next turn
     shuffleList(fiveCards);
   }
   
@@ -60,11 +67,26 @@ export function MTGcards () {
       )
     })
   
+  const playRound = (e) => {
+    // Record the action
+    console.log("You clicked: ")
+    console.log(e.target)
+    // Get the id
+    let selection = e.target.parentElement.id;
+    console.log(selection)
+    // 
+
+
+    // Check Winner
+    // if (gameScore.length === 4){
+      // declareWinner();
+    // }
+  }
+
   // Implement the Fisher-Yates Shuffle
   const shuffleList = (fiveCards) => {
     // Copy fiveCards
     let shuffledOrder = [...fiveCards]
-
 
     let currentIndex = fiveCards.length
     let randomIndex;
