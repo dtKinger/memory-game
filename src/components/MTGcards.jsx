@@ -1,9 +1,8 @@
-import "../styles/quotes.css"
+import "../styles/mtg-cards.css"
 import { useState, useEffect } from "react";
 
-export function Quotes () {
-  // let nextId = 0;
-  const [twoQuotes, setTwoQuotes] = useState([])
+export function MTGcards () {
+  const [fiveCards, setFiveCards] = useState([])
   
   useEffect( () => {
     const initialFetch = async () => {
@@ -20,7 +19,7 @@ export function Quotes () {
       })
       const data = await response.json();
       console.log(data)
-      setTwoQuotes(data)
+      setFiveCards(data)
       } catch (error) {
         console.log(error);
       }
@@ -29,18 +28,16 @@ export function Quotes () {
   }, []);
 
   
-  const quoteList = twoQuotes.map(item => {
-    // nextId++
-    return <li className="quote-card" key={item.id} id={`quote-${item.id}`}><span className="quote-text">{item.text}</span><br></br><br></br><span className="quote-author">~ {item.author}</span></li>
+  const cardsList = fiveCards.map(item => {
+    return <li className="card" key={item.id} id={item.id}><span className="text">{item.text}</span><br></br><br></br><span className="author">~ {item.author}</span></li>
   })
 
   return (
-    <div className="quotes-container">
-      <ul className="quotes-list">
-      {quoteList}
+    <div className="cards-container">
+      <ul className="cards-list">
+      {cardsList}
       </ul>
     </div>
   )
 }
 
-export default Quotes;

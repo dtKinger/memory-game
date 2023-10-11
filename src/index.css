@@ -32,10 +32,13 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  align-items: center;
   background-color: rgb(50, 50, 50);
   color: rgb(240,240,240);
   min-height: 100vh;
+  background-image: url('./assets/mtg-background.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header, footer{
