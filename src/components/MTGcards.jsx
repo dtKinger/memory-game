@@ -26,10 +26,17 @@ export function MTGcards () {
 
       // Pick 5 random cards
       let randomFive = [];
-      for (let i = 0; i < 5; i += 1) {
+      let noDuplicateCards = new Set()
+      for (let i = 0; randomFive.length < 5; i += 1) {
         let randomIndex = Math.floor(Math.random() * cardsWithImages.length);
-        randomFive.push(cardsWithImages[randomIndex]);
+        if (!noDuplicateCards.has(randomIndex)){
+          randomFive.push(cardsWithImages[randomIndex])
+          noDuplicateCards.add(randomIndex)
+        } else if(noDuplicateCards.has(randomIndex)) {
+          console.log('We dodged a duplicate random.')
+        };
       }
+      console.log(noDuplicateCards)
 
       console.log(randomFive)
 
