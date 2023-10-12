@@ -1,0 +1,12 @@
+.play-again{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: 0 auto;
+  font-size: 1.5em;
+  background-color: white;
+  color: black;
+  height: 200px;
+  width: 400px;
+}

@@ -26,6 +26,7 @@ function App() {
   }
 
   const handleGameStart = () => {
+    setCurrentScore(score => 0)
     setGameStage("mtg-cards");
   }
 
