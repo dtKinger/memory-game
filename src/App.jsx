@@ -4,11 +4,20 @@ import './App.css'
 
 // import PreGame from './PreGame';
 import MTGcards from './components/MTGcards';
+import Score from './components/Score'
 // import GameOver from './GameOver';
 
-function App({Score}) {
+function App() {
 
   const [gameStage, setGameStage] = useState("mtg-cards");
+
+  const handleScoreChange = () => {
+
+  }
+
+  const handleNewHighScore = () => {
+    
+  }
 
   const handlePlayerWin = () => {
     setGameStage("player-win");
@@ -24,7 +33,7 @@ function App({Score}) {
 
   return (
     <div className="App">
-      {Score}
+      <Score onScoreChange={handleScoreChange} newHighScore={handleNewHighScore} />
       {gameStage === "pre-game" && (
         <PreGame onStartGame={handleGameStart} />
       )}
