@@ -3,10 +3,14 @@
   align-items: center;
   background-color: rgba(50, 50, 50, 0.75);
   min-height: 80vh;
+  min-width: 100vw;
 }
 
 .App{
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 60px;
+  justify-content: center;
+  align-items: center;
 }
