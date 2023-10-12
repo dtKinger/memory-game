@@ -1,7 +1,7 @@
 import "../styles/mtg-cards.css"
 import { useState, useEffect } from "react";
 
-export function MTGcards ({highScore, currentScore, onScoreChange, onGameOver, onPlayerWin}) {
+export function MTGcards ({onScoreChange, onGameOver, onPlayerWin}) {
   const [fiveCards, setFiveCards] = useState([])
   const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
   // Infer the player score by gameScore.length.
@@ -92,7 +92,7 @@ export function MTGcards ({highScore, currentScore, onScoreChange, onGameOver, o
   useEffect(() => {
     const checkForWinner = () => {
       if (gameScore.length === 5) {
-        onPlayerWin();
+        onGameOver();
       }
     }
   

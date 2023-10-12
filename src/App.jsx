@@ -17,10 +17,6 @@ function App() {
     setCurrentScore(score => score + 1)
   }
 
-  const handleNewHighScore = (score) => {
-    
-  }
-
   const handlePlayerWin = () => {
     setGameStage("player-win");
   }
@@ -46,11 +42,11 @@ function App() {
       )}
 
       {gameStage === "mtg-cards" && (
-        <MTGcards highScore={highScore} onScoreChange={handleScoreChange} onPlayerWin={handlePlayerWin} onGameOver={handleGameOver} />
+        <MTGcards onScoreChange={handleScoreChange} onGameOver={handleGameOver} />
       )}
 
       {gameStage === "game-over" && (
-        <GameOver onRestart={handleGameStart} />
+        <GameOver currentScore={currentScore} onRestart={handleGameStart} />
       )}
     </div>
   );
