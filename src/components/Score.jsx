@@ -1,10 +1,6 @@
 import '../styles/score.css'
-import { useState } from 'react';
 
-function Score ({onScoreChange, newHighScore}) {
-  const [highScore, setHighScore] = useState(0)
-  const [currentScore, setCurrentScore] = useState(0)
-
+function Score ({currentScore, highScore}) {
 
   console.log('Score and high score')
   return (

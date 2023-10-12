@@ -10,9 +10,11 @@ import Score from './components/Score'
 function App() {
 
   const [gameStage, setGameStage] = useState("mtg-cards");
+  const [highScore, setHighScore] = useState(0)
+  const [currentScore, setCurrentScore] = useState(0)
 
   const handleScoreChange = () => {
-
+    setCurrentScore(score => score + 1)
   }
 
   const handleNewHighScore = () => {
@@ -33,13 +35,13 @@ function App() {
 
   return (
     <div className="App">
-      <Score onScoreChange={handleScoreChange} newHighScore={handleNewHighScore} />
+      <Score currentScore={currentScore} highScore={highScore}/>
       {gameStage === "pre-game" && (
         <PreGame onStartGame={handleGameStart} />
       )}
 
       {gameStage === "mtg-cards" && (
-        <MTGcards onPlayerWin={handlePlayerWin} onGameOver={handleGameOver} />
+        <MTGcards highScore={highScore} onScoreChange={handleScoreChange} onPlayerWin={handlePlayerWin} onGameOver={handleGameOver} />
       )}
 
       {gameStage === "game-over" && (
