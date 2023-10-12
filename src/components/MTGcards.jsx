@@ -80,11 +80,11 @@ export function MTGcards ({highScore, currentScore, onScoreChange, onGameOver, o
         ...prev,
         selection
       ])
+      onScoreChange()
     } else if (gameScore.includes(selection)){
       onGameOver();
     }
-    console.log(gameScore)
-    onScoreChange(gameScore.length)
+    
     
   }
 

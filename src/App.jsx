@@ -5,7 +5,7 @@ import './App.css'
 // import PreGame from './PreGame';
 import MTGcards from './components/MTGcards';
 import Score from './components/Score'
-// import GameOver from './GameOver';
+import GameOver from './components/GameOver';
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
     setCurrentScore(score => score + 1)
   }
 
-  const handleNewHighScore = () => {
+  const handleNewHighScore = (score) => {
     
   }
 
@@ -30,6 +30,10 @@ function App() {
   }
 
   const handleGameOver = () => {
+    if (currentScore > highScore){
+      setHighScore(currentScore)
+    }
+    
     setGameStage("game-over");
   }
 
