@@ -11,6 +11,7 @@ function App() {
   const [gameStage, setGameStage] = useState("mtg-cards");
   const [highScore, setHighScore] = useState(0)
   const [currentScore, setCurrentScore] = useState(0)
+  const [maxCards, setMaxCards] = useState(10);
 
   const handleScoreChange = () => {
     setCurrentScore(score => score + 1)
@@ -35,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-      <Score currentScore={currentScore} highScore={highScore}/>
+      <Score maxCards={maxCards} currentScore={currentScore} highScore={highScore}/>
       {gameStage === "pre-game" && (
         <PreGame onStartGame={handleGameStart} />
       )}

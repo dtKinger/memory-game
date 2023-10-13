@@ -2,7 +2,7 @@ import "../styles/mtg-cards.css"
 import { useState, useEffect } from "react";
 
 export function MTGcards ({onScoreChange, onGameOver}) {
-  const [fiveCards, setFiveCards] = useState([])
+  const [pickedCards, setpickedCards] = useState([])
   const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
   // Infer the player score by gameScore.length.
   const [topScore, setTopScore] = useState(0) // Set this to:
@@ -26,10 +26,10 @@ export function MTGcards ({onScoreChange, onGameOver}) {
         }
       })
 
-      // Pick 5 random cards
+      // Pick 10 random cards
       let randomFive = [];
       let noDuplicateCards = new Set()
-      for (let i = 0; randomFive.length < 5; i += 1) {
+      for (let i = 0; randomFive.length < 10; i += 1) {
         let randomIndex = Math.floor(Math.random() * cardsWithImages.length);
         if (!noDuplicateCards.has(randomIndex)){
           randomFive.push(cardsWithImages[randomIndex])
@@ -39,7 +39,7 @@ export function MTGcards ({onScoreChange, onGameOver}) {
         };
       }
 
-      setFiveCards(randomFive)
+      setpickedCards(randomFive)
       } catch (error) {
         console.log(error);
       }
@@ -53,10 +53,10 @@ export function MTGcards ({onScoreChange, onGameOver}) {
     playRound(e);
 
     // Set up for next turn
-    shuffleList(fiveCards);
+    shuffleList(pickedCards);
   }
   
-  const cardsList = fiveCards.map(item => {
+  const cardsList = pickedCards.map(item => {
     const backgroundImageURL = item.imageUrl;
     // Resolve mixed content errors by transforming my URLs
     let httpsURL = backgroundImageURL.replace('http:', 'https://')
@@ -86,7 +86,7 @@ export function MTGcards ({onScoreChange, onGameOver}) {
   // Make the winner check depend on the gameScore
   useEffect(() => {
     const checkForWinner = () => {
-      if (gameScore.length === 5) {
+      if (gameScore.length === 10) {
         onGameOver();
       }
     }
@@ -95,11 +95,11 @@ export function MTGcards ({onScoreChange, onGameOver}) {
   }, [gameScore]);
 
   // Implement the Fisher-Yates Shuffle
-  const shuffleList = (fiveCards) => {
-    // Copy fiveCards
-    let shuffledOrder = [...fiveCards]
+  const shuffleList = (pickedCards) => {
+    // Copy pickedCards
+    let shuffledOrder = [...pickedCards]
 
-    let currentIndex = fiveCards.length
+    let currentIndex = pickedCards.length
     let randomIndex;
 
     while (currentIndex > 0) {
@@ -111,7 +111,7 @@ export function MTGcards ({onScoreChange, onGameOver}) {
       [shuffledOrder[currentIndex], shuffledOrder[randomIndex]] = [
         shuffledOrder[randomIndex], shuffledOrder[currentIndex]];
     }
-    setFiveCards(shuffledOrder);
+    setpickedCards(shuffledOrder);
   }
 
   return (
