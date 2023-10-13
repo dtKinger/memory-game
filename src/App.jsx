@@ -6,6 +6,7 @@ import MTGcards from './components/MTGcards';
 import Score from './components/Score'
 import GameOver from './components/GameOver';
 import PreGame from './components/PreGame'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
       {gameStage === "game-over" && (
         <GameOver maxCards={maxCards} currentScore={currentScore} onRestart={handleGameReStart} />
       )}
+      <Footer />
     </div>
   );
 }
