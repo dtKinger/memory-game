@@ -83,7 +83,6 @@ export function MTGcards ({onScoreChange, onGameOver, maxCards}) {
   // Make the winner check depend on the gameScore
   useEffect(() => {
     const checkForWinner = () => {
-      console.log(maxCards)
       if (gameScore.length == maxCards) {
         onGameOver(maxCards);
       }
