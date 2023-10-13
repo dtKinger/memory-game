@@ -9,9 +9,9 @@ function PreGame ({onStartGame}) {
       <p>Choose Difficulty</p>
       <div className="difficulties">
         
-        <button onClick={onStartGame} className="start-game" value="5">Easy</button>
-        <button onClick={onStartGame} className="start-game" value="7">Medium</button>
-        <button onClick={onStartGame} className="start-game" value="10">Hard</button>
+        <button onClick={onStartGame} className="start-game" value="5">5 cards</button>
+        <button onClick={onStartGame} className="start-game" value="7">7 cards</button>
+        <button onClick={onStartGame} className="start-game" value="10">10 cards</button>
       </div>
       
     </div>

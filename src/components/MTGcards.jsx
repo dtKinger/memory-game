@@ -1,7 +1,7 @@
 import "../styles/mtg-cards.css"
 import { useState, useEffect } from "react";
 
-export function MTGcards ({onScoreChange, onGameOver}) {
+export function MTGcards ({onScoreChange, onGameOver, maxCards}) {
   const [pickedCards, setpickedCards] = useState([])
   const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
   // Infer the player score by gameScore.length.
@@ -23,10 +23,10 @@ export function MTGcards ({onScoreChange, onGameOver}) {
         }
       })
 
-      // Pick 10 random cards
+      // Pick the random cards
       let randomFive = [];
       let noDuplicateCards = new Set()
-      for (let i = 0; randomFive.length < 10; i += 1) {
+      for (let i = 0; randomFive.length < maxCards; i += 1) {
         let randomIndex = Math.floor(Math.random() * cardsWithImages.length);
         if (!noDuplicateCards.has(randomIndex)){
           randomFive.push(cardsWithImages[randomIndex])
@@ -83,8 +83,9 @@ export function MTGcards ({onScoreChange, onGameOver}) {
   // Make the winner check depend on the gameScore
   useEffect(() => {
     const checkForWinner = () => {
-      if (gameScore.length === 10) {
-        onGameOver();
+      console.log(maxCards)
+      if (gameScore.length == maxCards) {
+        onGameOver(maxCards);
       }
     }
   

@@ -12,20 +12,21 @@ function App() {
   const [gameStage, setGameStage] = useState("pre-game");
   const [highScore, setHighScore] = useState(0)
   const [currentScore, setCurrentScore] = useState(0)
-  const [maxCards, setMaxCards] = useState(10);
+  const [maxCards, setMaxCards] = useState(0);
 
   const handleScoreChange = () => {
     setCurrentScore(score => score + 1)
   }
 
-  const handlePlayerWin = () => {
-    setGameStage("player-win");
-  }
-
   const handleGameStart = (e) => {
-    setCurrentScore(score => 0)
+    setCurrentScore(0)
     setMaxCards(e.target.value)
     setGameStage("mtg-cards");
+  }
+
+  const handleGameReStart = (e) => {
+    setCurrentScore(0)
+    setGameStage("pre-game");
   }
 
   const handleGameOver = () => {
@@ -44,11 +45,11 @@ function App() {
       )}
 
       {gameStage === "mtg-cards" && (
-        <MTGcards onScoreChange={handleScoreChange} onGameOver={handleGameOver} />
+        <MTGcards maxCards={maxCards} onScoreChange={handleScoreChange} onGameOver={handleGameOver} />
       )}
 
       {gameStage === "game-over" && (
-        <GameOver currentScore={currentScore} onRestart={handleGameStart} />
+        <GameOver maxCards={maxCards} currentScore={currentScore} onRestart={handleGameReStart} />
       )}
     </div>
   );
