@@ -22,8 +22,9 @@ function App() {
     setGameStage("player-win");
   }
 
-  const handleGameStart = () => {
+  const handleGameStart = (e) => {
     setCurrentScore(score => 0)
+    setMaxCards(e.target.value)
     setGameStage("mtg-cards");
   }
 

@@ -5,9 +5,6 @@ export function MTGcards ({onScoreChange, onGameOver}) {
   const [pickedCards, setpickedCards] = useState([])
   const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
   // Infer the player score by gameScore.length.
-  const [topScore, setTopScore] = useState(0) // Set this to:
-  // highestScore = if( gameScore > topScore ? gameScore : topScore)
-  // localStore.setItem('highestScore', highestScore);
   
   useEffect( () => {
     const initialFetch = async () => {
