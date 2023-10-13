@@ -58,7 +58,6 @@ export function MTGcards ({onScoreChange, onGameOver}) {
   
   const cardsList = fiveCards.map(item => {
     const backgroundImageURL = item.imageUrl;
-    console.log(backgroundImageURL)
     // Resolve mixed content errors by transforming my URLs
     let httpsURL = backgroundImageURL.replace('http:', 'https://')
       return (
