@@ -6,6 +6,8 @@ ul, li{
   width: 100vw;
   display: flex;
   justify-content: center;
+
+  background-color: rgba(50, 50, 50, 0.75);
 }
 
 .cards-list{
