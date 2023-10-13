@@ -26,6 +26,7 @@ function App() {
   }
 
   const handleGameReStart = (e) => {
+    setCurrentScore(0)
     setGameStage("pre-game");
   }
 
