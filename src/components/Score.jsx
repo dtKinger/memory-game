@@ -2,7 +2,6 @@ import '../styles/score.css'
 
 function Score ({currentScore, highScore}) {
 
-  console.log('Score and high score')
   return (
     <>
     <div className="scores-container">

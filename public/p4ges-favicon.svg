@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.53 29.31">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 11.54px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #383838;
+        font-family: RobotoMono-Bold, 'Roboto Mono';
+      }
+
+      .cls-2 {
+        font-size: 16.26px;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(1.23 13.91) scale(.95 1)"><tspan x="0" y="0">&lt;/&gt;</tspan></text>
+  <text class="cls-1" transform="translate(0 26.18) scale(.88 1)"><tspan x="0" y="0">P4GES</tspan></text>
+</svg>

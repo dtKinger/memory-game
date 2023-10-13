@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { ReactDOM } from 'react'
 import './App.css'
 
 // import PreGame from './PreGame';

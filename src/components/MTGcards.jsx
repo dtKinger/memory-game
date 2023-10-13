@@ -1,7 +1,7 @@
 import "../styles/mtg-cards.css"
 import { useState, useEffect } from "react";
 
-export function MTGcards ({onScoreChange, onGameOver, onPlayerWin}) {
+export function MTGcards ({onScoreChange, onGameOver}) {
   const [fiveCards, setFiveCards] = useState([])
   const [gameScore, setGameScore] = useState([]) //  Add successfull clicks to an array.
   // Infer the player score by gameScore.length.
@@ -39,8 +39,6 @@ export function MTGcards ({onScoreChange, onGameOver, onPlayerWin}) {
         };
       }
 
-      console.log(randomFive)
-
       setFiveCards(randomFive)
       } catch (error) {
         console.log(error);
@@ -69,9 +67,6 @@ export function MTGcards ({onScoreChange, onGameOver, onPlayerWin}) {
   
   const playRound = (e) => {
 
-    // Record the action
-    console.log("You clicked: ")
-    console.log(e.target)
     // Get the id
     let selection = e.target.parentElement.id;
     if (!gameScore.includes(selection)){
@@ -84,8 +79,6 @@ export function MTGcards ({onScoreChange, onGameOver, onPlayerWin}) {
     } else if (gameScore.includes(selection)){
       onGameOver();
     }
-    
-    
   }
 
   // Make the winner check depend on the gameScore
