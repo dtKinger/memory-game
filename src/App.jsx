@@ -5,10 +5,11 @@ import './App.css'
 import MTGcards from './components/MTGcards';
 import Score from './components/Score'
 import GameOver from './components/GameOver';
+import PreGame from './components/PreGame'
 
 function App() {
 
-  const [gameStage, setGameStage] = useState("mtg-cards");
+  const [gameStage, setGameStage] = useState("pre-game");
   const [highScore, setHighScore] = useState(0)
   const [currentScore, setCurrentScore] = useState(0)
   const [maxCards, setMaxCards] = useState(10);
