@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import './App.css'
 
 // import PreGame from './PreGame';
@@ -7,6 +7,7 @@ import Score from './components/Score'
 import GameOver from './components/GameOver';
 import PreGame from './components/PreGame'
 import Footer from './components/Footer'
+import Loading from './components/Loading'
 
 function App() {
 
@@ -46,7 +47,9 @@ function App() {
       )}
 
       {gameStage === "mtg-cards" && (
-        <MTGcards maxCards={maxCards} onScoreChange={handleScoreChange} onGameOver={handleGameOver} />
+        <Suspense fallback={<Loading />}>
+          <MTGcards maxCards={maxCards} onScoreChange={handleScoreChange} onGameOver={handleGameOver} />
+        </Suspense>
       )}
 
       {gameStage === "game-over" && (

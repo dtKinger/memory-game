@@ -53,3 +53,10 @@ ul, li{
 .author{
   color: gray;
 }
+
+.loading{
+  height: 80vh;
+  width: 90vw;
+  background-color: yellow;
+  
+}
